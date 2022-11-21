@@ -21,11 +21,6 @@ const reactionSchema = new Schema(
         get: time => toLocalDateString(time), 
     },
     },
-    {
-      toJSON: {
-        getters: true,
-      },
-    }
   );
 
   module.exports = reactionSchema;

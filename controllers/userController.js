@@ -8,7 +8,7 @@ module.exports = {
     .then((users) => res.status(200).json(users))
     .catch((e) => res.status(500).json(e))
   },
-  getOneUser(req,res) { 
+  getSingleUser(req,res) { 
     User.findOne({_id: req.params.userId})
     .select('-__v')
     .populate('thoughts')
@@ -67,7 +67,7 @@ module.exports = {
     )
     .catch((e) => res.status(500).json(e))
   },
-  removeFriend(req,res) {
+  deleteFriend(req,res) {
     User.findOneAndUpdate(
       {_id: req.params.userId},
       {$pull: {friends: req.params.friendId}},
